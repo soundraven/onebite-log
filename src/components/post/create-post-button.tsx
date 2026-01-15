@@ -3,6 +3,7 @@ import { PlusCircleIcon } from "lucide-react";
 
 export default function CreatePostButton() {
   const openPostEditorModal = useOpenPostEditorModal();
+
   return (
     <div
       onClick={openPostEditorModal}
