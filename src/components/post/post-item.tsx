@@ -13,6 +13,8 @@ import { useSession } from "@/store/session";
 import { usePostByIdData } from "@/hooks/queries/use-post-by-id-data";
 import Loader from "@/components/loader";
 import Fallback from "@/components/fallback";
+import LikePostButton from "@/components/post/like-post-button";
+import { Link } from "react-router";
 
 export default function PostItem({ postId }: { postId: number }) {
   const session = useSession();
@@ -38,11 +40,14 @@ export default function PostItem({ postId }: { postId: number }) {
       <div className="flex justify-between">
         {/* 1-1. 유저 정보 */}
         <div className="flex items-start gap-4">
-          <img
-            src={post.author.avatar_url || defaultAvatar}
-            alt={`${post.author.nickname}의 프로필 이미지`}
-            className="h-10 w-10 rounded-full object-cover"
-          />
+          <Link to={`profile/${post.author_id}`}>
+            <img
+              src={post.author.avatar_url || defaultAvatar}
+              alt={`${post.author.nickname}의 프로필 이미지`}
+              className="h-10 w-10 rounded-full object-cover"
+            />
+          </Link>
+
           <div>
             <div className="font-bold hover:underline">
               {post.author.nickname}
@@ -90,10 +95,11 @@ export default function PostItem({ postId }: { postId: number }) {
       {/* 3. 좋아요, 댓글 버튼 */}
       <div className="flex gap-2">
         {/* 3-1. 좋아요 버튼 */}
-        <div className="hover:bg-muted flex cursor-pointer items-center gap-2 rounded-xl border-1 p-2 px-4 text-sm">
-          <HeartIcon className="h-4 w-4" />
-          <span>0</span>
-        </div>
+        <LikePostButton
+          id={postId}
+          likeCount={post.like_count}
+          isLiked={post.isLiked}
+        ></LikePostButton>
 
         {/* 3-2. 댓글 버튼 */}
         <div className="hover:bg-muted flex cursor-pointer items-center gap-2 rounded-xl border-1 p-2 px-4 text-sm">

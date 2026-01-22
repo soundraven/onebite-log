@@ -4,6 +4,7 @@ import { SunIcon } from "lucide-react";
 import defaultAvatar from "@/assets/default-avatar.jpg";
 import SessionProvider from "@/provider/session-provider";
 import ModalProvider from "@/provider/modal-provider";
+import ProfileButton from "@/components/layout/header/profile-button";
 
 export default function GlobalLayout() {
   return (
@@ -24,11 +25,7 @@ export default function GlobalLayout() {
                 <div className="hover:bg-muted cursor-pointer rounded-full p-2">
                   <SunIcon></SunIcon>
                 </div>
-                <img
-                  className="h-6"
-                  src={defaultAvatar}
-                  alt="기본 아바타 이미지"
-                />
+                <ProfileButton></ProfileButton>
               </div>
             </div>
           </header>
