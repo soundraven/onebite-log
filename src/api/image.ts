@@ -26,6 +26,9 @@ export async function deleteImagesInPath(path: string) {
     .from(BUCKET_NAME)
     .list(path);
 
+  // 삭제할 이미지 없는 경우 에러 처리
+  if (!files || files.length === 0) return;
+
   if (fetchFilesError) throw fetchFilesError;
 
   const { error: removeError } = await supabase.storage
