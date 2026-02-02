@@ -5,6 +5,7 @@ import defaultAvatar from "@/assets/default-avatar.jpg";
 import SessionProvider from "@/provider/session-provider";
 import ModalProvider from "@/provider/modal-provider";
 import ProfileButton from "@/components/layout/header/profile-button";
+import ThemeButton from "@/components/layout/header/theme-button";
 
 export default function GlobalLayout() {
   return (
@@ -22,9 +23,7 @@ export default function GlobalLayout() {
                 <div className="font-bold">한입 로그</div>
               </Link>
               <div className="gat-5 flex items-center">
-                <div className="hover:bg-muted cursor-pointer rounded-full p-2">
-                  <SunIcon></SunIcon>
-                </div>
+                <ThemeButton></ThemeButton>
                 <ProfileButton></ProfileButton>
               </div>
             </div>

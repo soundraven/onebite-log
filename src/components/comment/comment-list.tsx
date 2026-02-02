@@ -29,7 +29,7 @@ const toNestedComments = (comments: Comment[]): NestedComment[] => {
       });
     }
   });
-  console.log("중첩댓글배열:", result);
+
   return result;
 };
 

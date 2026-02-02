@@ -23,6 +23,7 @@ export async function fetchPosts({
   if (authorId) request.eq("author_id", authorId);
 
   const { data, error } = await request;
+  console.log(data);
 
   if (error) throw error;
 
